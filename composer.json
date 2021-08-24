@@ -1,0 +1,26 @@
+{
+    "name": "sahadat/sfaq",
+    "description": "This package helps to create FAQ section in laravel application easily.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sahadat\\Sfaq\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sahadat hossain",
+            "email": "sahadat.ms@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sahadat\\Sfaq\\SfaqServiceProvider"
+            ]
+        }
+    }
+}
