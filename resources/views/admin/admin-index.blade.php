@@ -273,7 +273,8 @@
             <div class="card-body">
               <!-- Chart -->
               <div class="">
-                <?php ?>
+                <?php $total[]=null ?>
+
                 <?php $count = 1?>
 
                 @foreach ($category->sortBy('priority') as $cat)
