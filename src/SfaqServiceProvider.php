@@ -25,9 +25,9 @@ class SfaqServiceProvider extends ServiceProvider
 
     private function registerRoutes()
     {
-        Route::group($this->routeConfiguration(), function () {
+        // Route::group($this->routeConfiguration(), function () {
             $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
-        });
+        // });
     }
     
 
