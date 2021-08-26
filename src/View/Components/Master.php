@@ -26,6 +26,6 @@ class Master extends Component
      */
     public function render()
     {
-        return view('components.master');
+        return view('sfaq::components.master');
     }
 }

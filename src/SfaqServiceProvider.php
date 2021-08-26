@@ -16,6 +16,27 @@ class SfaqServiceProvider extends ServiceProvider
         $this->registerMigrations();
         $this->registerComponents();
 
+
+
+        $this->loadViewComponentsAs('sfaq', [
+            Master::class,
+            
+          ]);
+
+
+
+        if ($this->app->runningInConsole()) 
+          
+          {
+
+            // Publish assets
+
+            $this->publishes([
+              __DIR__.'/../public' => public_path('vendor/sfaq'),
+            ], ['sfaq-assets', 'laravel-assets']);
+          
+          }
+
     }
 
 

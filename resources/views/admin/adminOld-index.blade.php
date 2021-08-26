@@ -26,7 +26,6 @@
 <body>
 
 
-
   <!-- Sidenav -->
   <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
@@ -250,9 +249,20 @@
                   <ul class="nav nav-pills justify-content-end">
                     <li class="nav-item">
                       {{-- triger for add new FAQ --}}
-                      <a class="btn btn-sm btn-neutral"><div data-toggle="modal" data-target="#exampleModal">ADD NEW FAQ CATEGORY</div></a>
-                      <a class="btn btn-sm btn-neutral"><div data-toggle="modal" data-target="#exampleModal">ADD NEW FAQ CATEGORY</div></a>
-                      </a>
+                      {{-- to get total number of category --}}
+                      
+                     <?php $numOfCat = 1 ?>  {{-- will give a extra number to set default cat priority --}}
+
+                      @foreach ($category as $one)
+
+                        <?php $numOfCat++ ?>
+                        
+                      @endforeach
+
+                      <a class="btn btn-sm btn-neutral" onclick='createCategory({{ $numOfCat }})'><div data-toggle="modal" data-target="#exampleModal">ADD NEW FAQ CATEGORY</div></a>
+
+                      <h2 class="text-white">Total Category : <span class="text-success"> {{ $numOfCat - 1 }}</span></h2>
+
                     </li>
                   </ul>
                 </div>
@@ -262,7 +272,13 @@
             <div class="card-body">
               <!-- Chart -->
               <div class="">
-                @foreach ($category as $cat)
+                <?php ?>
+                <?php $count = 1?>
+
+                @foreach ($category->sortBy('priority') as $cat)
+
+                <?php $total[] = $count++ ?>
+                  
                   
                 
                   <div class="accor">
@@ -271,15 +287,18 @@
                         <span class="ms-2">{{ $cat->category }}</span>
                         {{-- <p id="demo" onclick="myFunction()">Click me to change my text color.</p> --}}
   
-                        <span class="f-right"><a href="delete/{{ $cat->id }}" onclick='return confirm("All the questions will be deleted associated with this category. Are you sure you want to delete: {{ $cat->category }}? ")' class="redC"><i class="fas fa-trash ml-2"></i></a></span>
+                        <span class="f-right"><a href="delete/{{ $cat->id }}" onclick='return confirm("All the questions will be deleted associated with this category. Are you sure you want to delete: {{ $cat->category }}? ")' class="redC" title="Delete"><i class="fas fa-trash ml-2"></i></a></span>
+                    
+                        <span class="f-right"><a onclick='editCategory("{{ $cat->id }}" , "{{ $cat->category }}" , "{{ $cat->priority }}")'><i class=" fas fa-edit ml-2"></i>edit</a></span>
                         
-                        <span class="f-right"><a href="edit/{{ $cat->id }}" class="editBtn" onclick=""><i class="fas fa-edit ml-2"></i></i></a></span>
-                       
-            
-                        <span class="f-right"><a href="/create_qus/{{ $cat->id }}" class="greenC"><i class=" fas fa-plus ml-2"></i>Add qus</a></span>
+                        <span class="f-right"><a href="/create_qus/{{ $cat->id }}" class="greenC" title="Add question and answer"><i class=" fas fa-plus ml-2"></i>Add qus</a></span>
+                        
+                        <span class="f-right"><a onclick='editPriority("{{ $cat->id }}" , "{{ $cat->priority }}")'>Priority: {{ $cat->priority }}</a></span>
                         
                         
                       </button>
+
+                      
                     
                     
 
@@ -289,14 +308,12 @@
                           
                           <div class="accor">
                             <button class="sub-accordion">
-                              <span>{{ $qus->question }}</span>
+                              <span><span class="text-primary">Qn: </span> {{ $qus->question }}</span>
                               <span class="f-right"><a href="delete_qus/{{ $qus->id }}" class="redC"><i class="fas fa-trash ml-2"></i></a></span>
-                              <span class="f-right"><a href="#"><i class="fas fa-edit ml-2"></i></a></span>
+                              <span class="f-right"><a onclick='editQuestion("{{ $qus->id }}" , "{{ $qus->question }}" , "{{ $qus->answer }}")'><i class=" fas fa-edit ml-2"></i></a></span>
                             </button>
                             <div class="sub-panel">
-                              <span class="text-secondary bg-warning">Click on the text to edit</span>
-                              <textarea class="text-area">{{ $qus->answer }}</textarea>
-                              <span class="f-right"><a><button class="btn btn-success mb-2">SAVE</button></a></span>
+                              <p class="text-area"><span class="text-primary">Ans: </span> {{ $qus->answer }}</p>
                             </div>
                           </div>
 
@@ -315,8 +332,12 @@
                         @endforelse
                     </div>
                   </div>
-                @endforeach   
+                @endforeach  
+                
+                <input type="text" class="text-warning" id="arreyLength" hidden readonly value="{{ $count }}">
+                
 
+                
 
                 <!-- Chart wrapper -->
                 <canvas class="chart-canvas"></canvas>
@@ -611,8 +632,22 @@
                     
                       <h2 class="text-center">ADD NEW CATEGORY</h2>       
                       <div class="form-group">
+                        <label for="category">Input FAQ category name</label>
                           <input type="text" class="form-control" name="category" id="category" placeholder="FAQ category" required="required">
                       </div>
+                      
+                      <div class="form-group">
+                        <label for="setPriority">Set priority (optional)</label>
+                        <select name="setPriority" class="form-select" aria-label="Default select example">
+                        
+                          <option selected id="selectedOp" value=""></option>
+                          @foreach ($total as $dat)
+                            <option value="{{ $dat }}">{{ $dat }}</option>
+                          @endforeach
+
+                        </select>
+
+                      </div>  
                       
                       <div class="form-group">
                           <button type="submit" class="btn">SAVE</button>
@@ -631,7 +666,7 @@
 
 
 
-</div>
+
 
 
 
@@ -645,7 +680,7 @@
 
  {{-- Trigger to popup Category edit form popup --}}
 
- {{ $triger = false, $categoryId = null, $categoryName = null }}
+ {{-- {{ $triger = false, $categoryId = null, $categoryName = null }}
 
   @if (@isset($catEdit))
   {{ $categoryId = $catEdit->id }}
@@ -657,31 +692,63 @@
       
     }
   </script>
-  @endif
+  @endif --}}
+
+ 
+
 
  <!-- Modal in this category edit form-->
     <div class="modal fade" id="catModal" tabindex="-1" role="dialog" aria-labelledby="catModalLabel" aria-hidden="true">
       <div class="modal-dialog ms-auto" role="document">
         <div class="modal-content">
 
+          <div class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
           <div class="modal-body">
               <div class="login-form">
-                  <form action="/edit_category/{{ $categoryId }}" method="post">
+                  <form id="catEditForm" action="/edit_category/" method="post">
                     @csrf
                     @method('PUT')
                     
-                      <h2 class="text-center">edit Category</h2>       
+                      <h2 class="text-center mb-5">Update Category</h2>       
                       <div class="form-group">
-                          <input type="text" class="form-control" name="categoryEdit" id="categoryEdit"  placeholder="FAQ category" value="{{ $categoryName }}" required="required">
-                      </div>
-                      
-                      <div class="form-group">
-                          <button type="submit" class="btn">Update</button>
+                          <input type="text" class="form-control text-dark" name="categoryEdit" id="catEditInput"  placeholder="FAQ category" value="" required="required">
                       </div>
 
                       <div class="form-group">
-                        <a href="/admin"><button type="submit" class="btn">cancle</button></a>
+
+                        <div class="">
+                        
+                        <h3 class=" text-dark d-inline"  id="">Current Priority: </h3>
+                        <h3 class=" text-primary d-inline" id="editPrio"></h3>
+
+                      
+                        </div>
+                        <div class="mt-2">
+                          <h3 class=" text-dark d-inline"  id="">Update Priority: </h3>
+                          <select name="priority" class="p-1 d-inline" aria-label="Default select example">
+                              <option selected id="currentPrio" value="">Edit</option>
+                              @foreach ($total as $dat)
+                                <option value="{{ $dat }}">{{ $dat }}</option>
+                              @endforeach
+                          </select>
+                        </div>
+
+                      </div>
+                      
+                      <div class="form-group">
+                          <button type="submit" class="btn mt-5">Update</button>
+                      </div>
+
+                      <div class="form-group mt-10">
+                        <a href="/admin" class="btn">Cancle</a>
                     </div>
+
                       
                           
                   </form>
@@ -693,21 +760,58 @@
 
 
 
- 
+
+    <!-- Modal for question edit form-->
+
+    <div class="modal fade" id="qusModal" tabindex="-1" role="dialog" aria-labelledby="qusModalLabel" aria-hidden="true">
+      <div class="modal-dialog ms-auto" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+              <div class="login-form">
+                  <form id="qusEditForm" action="/edit_question/" method="post">
+                    @csrf
+                    @method('PUT')
+                    
+                      <h2 class="text-center mb-5">Edit question</h2>       
+                      <div class="form-group">
+                          <input type="text" class="form-control text-dark" name="qusEdit" id="qusEdit"  placeholder="Question" value="" required="required">
+                      </div>
+
+                      <div class="form-group">
+                        <textarea class="form-control text-dark" name="ansEdit" id="ansEdit"  placeholder="Answer" required="required"></textarea>
+                      </div>
+                      
+                      <div class="form-group">
+                          <button type="submit" class="btn mt-5">Update</button>
+                      </div>
+
+                      <div class="form-group mt-10">
+                        <a href="/admin" class="btn">Cancle</a>
+                    </div>
+
+                      
+                          
+                  </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
- 
 
 
 
 
 
-
-
-
-
-
-</a>
 
   <!-- Argon Scripts -->
   <!-- Core -->
