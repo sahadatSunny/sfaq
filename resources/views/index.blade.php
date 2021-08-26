@@ -1,6 +1,8 @@
-<x-sfaq-master title="FAQ home">
+<x-sfaq-master title="Vuee index">
 
-      <h2>FAQ : <span><i class="fa fa-info-circle" aria-hidden="true"></i></span></h2>
+
+
+<h2>FAQ : <span><i class="fa fa-info-circle" aria-hidden="true"></i></span></h2>
       <section class="row">
   
             <div class="accrodion-section col-xl-8 mb-5">
@@ -16,5 +18,6 @@
             <x-sfaq::layouts.filter class="mt-5 ps-5 pt-3" bgColor="bg-color--blue" elementsColor="color--green"/>
 
       </section>
+
 
 </x-sfaq-master>

@@ -4,7 +4,7 @@ namespace Sahadat\Sfaq;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Sahadat\Sfaq\View\Components\admin\Master;
+use Sahadat\Sfaq\View\Components\Master;
 
 class SfaqServiceProvider extends ServiceProvider
 {
@@ -14,14 +14,16 @@ class SfaqServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerRoutes();
         $this->registerMigrations();
-        $this->registerComponents();
+       
 
 
 
         $this->loadViewComponentsAs('sfaq', [
             Master::class,
-            
+
           ]);
+
+        // Blade::component('sfaq::layout', 'form-button');
 
 
 
@@ -69,16 +71,7 @@ class SfaqServiceProvider extends ServiceProvider
         
     }
 
-    private function registerComponents()
-    {
-        
-            $this->loadViewComponentsAs('sfaq', [
 
-                Master::class
-
-            ]);
-        
-    }
     
 
 }

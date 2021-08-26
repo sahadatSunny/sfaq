@@ -12,11 +12,11 @@ class Master extends Component
      * @return void
      */
 
-    public $viewTitle;
+    public $title;
 
-    public function __construct($title = null)
+    public function __construct($title=null)
     {
-        $this->viewTitle = $title;
+        return $this->title = $title;
     }
 
     /**
@@ -28,4 +28,5 @@ class Master extends Component
     {
         return view('sfaq::components.master');
     }
+
 }
