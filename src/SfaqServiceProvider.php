@@ -4,7 +4,9 @@ namespace Sahadat\Sfaq;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Sahadat\Sfaq\View\Components\admin\Master as AdminMaster;
 use Sahadat\Sfaq\View\Components\Master;
+use Sahadat\Sfaq\View\Components\Section;
 
 class SfaqServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,8 @@ class SfaqServiceProvider extends ServiceProvider
 
         $this->loadViewComponentsAs('sfaq', [
             Master::class,
+            AdminMaster::class,
+            Section::class
 
           ]);
 

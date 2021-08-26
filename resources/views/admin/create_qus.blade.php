@@ -1,11 +1,5 @@
-<x-section name="title"><title>Add FAQ question</title></x-section>
-        
-<x-section name="styles">
-        <link rel="stylesheet" href="{{ asset('css/custom/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}" type="text/css">
-</x-section>
-     
-<x-admin.master title="Create-FAQ">
+   
+<x-sfaq-admin.master title="Create-FAQ">
 
   <div class="container-fluid mt--6">
     <div class="row">
@@ -51,7 +45,7 @@
 
 
 
-</x-admin.master>
+</x-sfaq-admin.master>
 
 
   
