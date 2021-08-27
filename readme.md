@@ -2,15 +2,15 @@
 
 ## This package helps you to add FAQ section on your laravel application quickly
 
+___
+
+_Install via composer_
+
 ```bash
 composer require sahadat/sfaq
 
 ```
 ---
-
-_Install via composer_
-
->composer require sahadat/sfaq
 
 
 [Also check packagist](https://packagist.org/packages/sahadat/sfaq)

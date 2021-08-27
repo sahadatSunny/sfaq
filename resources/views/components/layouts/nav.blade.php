@@ -3,7 +3,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light sticky-top" id="nav-finder">
-    <a class="navbar-brand" href="{{url('/')}}"><img src="https://cdn140.picsart.com/318338795602211.png?type=webp&to=min&r=640" width="60px" height="60px"></a>
+    <a class="navbar-brand" href="{{url('/faq')}}"><img src="https://cdn140.picsart.com/318338795602211.png?type=webp&to=min&r=640" width="60px" height="60px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

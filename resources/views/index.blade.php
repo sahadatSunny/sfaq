@@ -1,4 +1,4 @@
-<x-sfaq-master title="Vuee index">
+<x-sfaq-master title="FAQ">
 
 
 
