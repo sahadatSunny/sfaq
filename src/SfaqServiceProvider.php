@@ -17,9 +17,6 @@ class SfaqServiceProvider extends ServiceProvider
         $this->registerRoutes();
         $this->registerMigrations();
        
-
-
-
         $this->loadViewComponentsAs('sfaq', [
             Master::class,
             Section::class,
