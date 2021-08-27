@@ -1,4 +1,4 @@
-<x-sfaq-admin.master title="Details">
+<x-sfaq-admin title="Details">
 
     <div class="container-fluid mt--6">
         <div class="row">
@@ -53,7 +53,8 @@
     </div>
 
 
-</x-sfaq-admin.master>
+
+</x-sfaq-admin>
 
 
 

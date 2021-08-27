@@ -48,17 +48,20 @@ class CategoryController extends Controller
 
     }
 
-    public function update(Category $id){
+    public function update($id){
+
+        $cat = Category::find($id);
+
        request()->validate([
            'categoryEdit' => 'required',
        ]);
 
-       $id->update([
+       $cat->update([
            'category' => request('categoryEdit'),
            'priority' => request('priority'),
        ]);
 
-       return redirect('/admin')->with('success','Category updated successfully');;
+       return redirect('/admin')->with('success','Category updated successfully');
     }
 
 

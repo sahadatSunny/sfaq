@@ -36,14 +36,16 @@ class QuestionController extends Controller
 
     }
 
-    public function update(Question $id){
+    public function update($id){
+
+        $ques = Question::find($id);
 
         request()->validate([
             'qusEdit' => 'required',
             'ansEdit' => 'required'
         ]);
 
-        $id->update([
+        $ques->update([
             'question' => request('qusEdit'),
             'answer' => request('ansEdit'),
             'category_id' => request('catEdit'),

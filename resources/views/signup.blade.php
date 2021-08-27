@@ -1,3 +1,8 @@
+<x-sfaq-section name="styles">
+<link rel="stylesheet" href="{{ asset('vendor/sfaq/css/custom/signup.css') }}" type="text/css">
+</x-sfaq-section>
+
+
 <x-sfaq-master title="Sign up">
 
 	<div class="signup-form">

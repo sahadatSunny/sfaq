@@ -1,22 +1,21 @@
 <?php
 
-namespace Sahadat\Sfaq\View\Components\admin;
+namespace Sahadat\Sfaq\View\Components;
 
 use Illuminate\View\Component;
 
-class Master extends Component
+class Admin extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
     public $title;
 
-    public function __construct($title = null)
+    public function __construct($title=null)
     {
-        $this->title = $title;
+        return $this->title = $title;
     }
 
     /**
@@ -26,6 +25,6 @@ class Master extends Component
      */
     public function render()
     {
-        return view('sfaq::components.admin.master');
+        return view('sfaq::components.admin');
     }
 }

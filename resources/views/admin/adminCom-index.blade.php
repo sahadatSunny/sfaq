@@ -1,7 +1,8 @@
-<x-sfaq-admin title="admin-index">
+    {{-- experimenting section custom made only string rendaring method instead of view  --}}
 
+<x-sfaq-admin-master title="Admin-FAQ">
 
-<div class="container-fluid mt--6">
+    <div class="container-fluid mt--6">
         <div class="row">
           <div class="col-xl-8">
               <div class="card bg-default">
@@ -37,7 +38,7 @@
 
                         <?php $total[] = $count++ ?>
                         
-                      <x-sfaq::layouts.admin-accordion :cat="$cat"/>
+                      <x-sfaq::admin.layouts.admin-accordion :cat="$cat"/>
 
                       @endforeach  
                       
@@ -59,5 +60,4 @@
 
 
 
-
-</x-sfaq-admin>
+</x-sfaq-admin-master>

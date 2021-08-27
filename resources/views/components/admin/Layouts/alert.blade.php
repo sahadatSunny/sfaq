@@ -62,10 +62,3 @@ window.onload = function(){
       </div>
     
 @endif
-
-
-
-
-
-
-

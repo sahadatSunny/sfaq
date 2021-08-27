@@ -1,5 +1,6 @@
    
-<x-sfaq-admin.master title="Create-FAQ">
+<x-sfaq-admin title="admin-index">
+
 
   <div class="container-fluid mt--6">
     <div class="row">
@@ -45,7 +46,7 @@
 
 
 
-</x-sfaq-admin.master>
+</x-sfaq-admin>
 
 
   

@@ -17,11 +17,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             
     <link rel="stylesheet" href="{{ asset('vendor/sfaq/css/bootstrap.css') }}">
-   
-   
+    <link rel="stylesheet" href="{{ asset('vendor/sfaq/css/admin/nucleo.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('vendor/sfaq/css/admin/admin.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('vendor/sfaq/css/custom/style.css') }}">   
- 
-
     
 
     {{-- This yielding will recive custom style from individual pages --}}
@@ -31,20 +29,13 @@
 
 </head>
 <body>
-   
-<x-sfaq::layouts.nav/>
 
-<div class="container">
-    
-    {{ $slot }}
+        <!--headers and Sidenav -->
 
-</div>
+        <x-sfaq::admin.layouts.admin-headers />
+       
+        {{ $slot }}
 
-@if (isset($footer))
-    {{ $footer }}
-@endif
-
-<x-sfaq::layouts.modals />
 
          <!-- Argon Scripts -->
   <!-- Core -->
@@ -55,6 +46,7 @@
   <script src="https://kit.fontawesome.com/8f393145a9.js" crossorigin="anonymous"></script>
   <!-- Optional JS -->
   <script src="{{ asset('vendor/sfaq/js/main.js') }}"></script>
+
 
 </body>
 </html>
