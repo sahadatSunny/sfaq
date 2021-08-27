@@ -4,7 +4,9 @@
 
 ___
 
-_Install via composer_
+color.Green("Install.")
+
+#### _Install via composer_
 
 ```bash
 composer require sahadat/sfaq
