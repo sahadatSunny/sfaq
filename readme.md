@@ -12,7 +12,6 @@ composer require sahadat/sfaq
 ```
 ---
 
-
 [Also check packagist](https://packagist.org/packages/sahadat/sfaq)
 
 
