@@ -34,6 +34,8 @@ window.onload = function(){
 
 {{-- alerts for errors --}}
 
+<?php if(isset($errors)){ ?>
+
 @if ($errors->any())
 
     <script>
@@ -62,3 +64,10 @@ window.onload = function(){
       </div>
     
 @endif
+
+<?php } ?>
+
+
+
+
+

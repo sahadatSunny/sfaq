@@ -45,7 +45,6 @@
   <div class="main-content" id="panel">
 
               {{-- user feedback msg --}}
-               
                 <x-sfaq::admin.layouts.alert />
               
                         
