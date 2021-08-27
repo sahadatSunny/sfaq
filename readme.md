@@ -32,11 +32,6 @@ composer require sahadat/sfaq
 
   <br>
 
-  <a style="text-decoration: none;" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> 
-   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="32" height="32" />
-  </a>
-
- 
   <a style="text-decoration: none;" href="https://www.php.net/"> 
    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="32" height="32" />
   </a>
