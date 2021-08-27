@@ -9,7 +9,7 @@ ___
 ### _Install via composer_
 
 ```bash
-#### composer require sahadat/sfaq
+composer require sahadat/sfaq
 
 ```
 ---
