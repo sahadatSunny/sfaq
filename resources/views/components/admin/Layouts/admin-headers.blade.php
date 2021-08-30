@@ -98,7 +98,7 @@
               <h5 class="h3 text-white mb-0">Logged in as.. </h5>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{ url('/faq') }}" class="btn btn-sm btn-neutral">VIEW AS USER</a>
+              <a href="{{ url('/sfaq') }}" class="btn btn-sm btn-neutral">VIEW AS USER</a>
             </div>
           </div>
           <!-- Card stats -->
