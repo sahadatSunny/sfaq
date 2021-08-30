@@ -2,37 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 use Sahadat\Sfaq\Http\Controllers\TestController;
 use Sahadat\Sfaq\Http\Controllers\CategoryController;
 use Sahadat\Sfaq\Http\Controllers\QuestionController;
 
-// Route::get('sfaq', function(){
-//     return view('layout');
-// });
 
-
-Route::get('/sfaq', function () {
-    return view('sfaq::layout');
-});
-
-Route::get('/faqShow', function(){
-    return view('sfaq::faqShow');
-});
-
-
-// Route::group(['namespace'=>'Sahadat\Sfaq\Http\Controllers'],function(){
-
-//     Route::get('/test', [TestController::class, 'index']);
-
-// });
-
-Route::get('/test', [TestController::class, 'index']);
-
-
-
-
-Route::get('/faq', [CategoryController::class, 'index']);
+Route::get('/sfaq', [CategoryController::class, 'index']);
 
 Route::get('/signup', function (){
     return view('sfaq::signup');
