@@ -7,8 +7,32 @@ use Sahadat\Sfaq\Http\Controllers\TestController;
 use Sahadat\Sfaq\Http\Controllers\CategoryController;
 use Sahadat\Sfaq\Http\Controllers\QuestionController;
 
+use App\Http\Kernel;
 
-Route::get('/sfaq', [CategoryController::class, 'index']);
+
+// Route::group(['middleware' => 'web'], function(){
+
+    Route::get('/sfaq', [CategoryController::class, 'index']);
+
+// });
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function ()    {
+        // Uses Auth Middleware
+    });
+
+    Route::get('user/profile', function () {
+        // Uses Auth Middleware
+    });
+});
+
+
+
+
+
+
+
 
 Route::get('/signup', function (){
     return view('sfaq::signup');

@@ -22,7 +22,7 @@
                         <h2 class="text-center">ADD NEW CATEGORY</h2>       
                         <div class="form-group">
                           <label for="category">Input FAQ category name</label>
-                            <input type="text" class="form-control" name="category" id="category" placeholder="FAQ category" required="required">
+                            <input type="text" class="form-control" name="category" id="category" placeholder="FAQ category">
                         </div>
                         
                         <div class="form-group">
@@ -161,11 +161,11 @@
                       
                         <h2 class="text-center mb-5">Edit question</h2>       
                         <div class="form-group">
-                            <input type="text" class="form-control text-dark" name="qusEdit" id="qusEdit"  placeholder="Question" value="" required="required">
+                            <input type="text" class="form-control text-dark" name="qusEdit" id="qusEdit"  placeholder="Question" value="">
                         </div>
   
                         <div class="form-group">
-                          <textarea class="form-control text-dark" name="ansEdit" id="ansEdit"  placeholder="Answer" required="required"></textarea>
+                          <textarea class="form-control text-dark" name="ansEdit" id="ansEdit"  placeholder="Answer"></textarea>
                         </div>
 
 

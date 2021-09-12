@@ -19,11 +19,11 @@
                             @csrf
     
                             <div class="form-group">
-                                <input type="text" class="form-control" name="question" id="question" placeholder="Please fill question here" required="required">
+                                <input type="text" class="form-control" name="question" id="question" placeholder="Please fill question here" >
                             </div>
                 
                             <div class="form-group">
-                                <textarea class="form-control" name="answer" id="answer" placeholder="Please fill answer here" required="required"></textarea>
+                                <textarea class="form-control" name="answer" id="answer" placeholder="Please fill answer here"></textarea>
                                 
                             </div>
                             

@@ -26,8 +26,6 @@ class SfaqServiceProvider extends ServiceProvider
 
         // Blade::component('sfaq::layout', 'form-button');
 
-
-
         if ($this->app->runningInConsole()) 
           
           {
@@ -39,6 +37,9 @@ class SfaqServiceProvider extends ServiceProvider
             ], ['sfaq-assets', 'laravel-assets']);
           
           }
+
+
+          Route::middlewareGroup('session_message', ['web', \Illuminate\View\Middleware\ShareErrorsFromSession::class]);
 
     }
 
@@ -53,16 +54,17 @@ class SfaqServiceProvider extends ServiceProvider
     private function registerRoutes()
     {
 
-      $namespace = 'Sahadat\Sfaq\Http\Controllers';
+      Route::group($this->routeConfiguration(), function () {
 
-      Route::middleware('auth')->namespace($namespace)->group(function(){
-
-            $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
-            
-      });
-       
-            
+            $this->loadRoutesFrom(__DIR__.'/Http/routes.php'); 
+      });    
         
+    }
+
+    private function routeConfiguration(){
+        return [
+            'middleware' => 'session_message'
+        ];
     }
 
     private function registerViews()
