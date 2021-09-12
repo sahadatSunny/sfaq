@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use Sahadat\Sfaq\Http\Controllers\TestController;
 use Sahadat\Sfaq\Http\Controllers\CategoryController;
 use Sahadat\Sfaq\Http\Controllers\QuestionController;
@@ -12,6 +13,7 @@ Route::get('/sfaq', [CategoryController::class, 'index']);
 Route::get('/signup', function (){
     return view('sfaq::signup');
 });
+
 
 Route::get('/admin', [CategoryController::class, 'admin_index']);
 

@@ -47,14 +47,21 @@ class SfaqServiceProvider extends ServiceProvider
     public function register(){
 
 
-
     }
 
 
     private function registerRoutes()
     {
-       
+
+      $namespace = 'Sahadat\Sfaq\Http\Controllers';
+
+      Route::middleware('auth')->namespace($namespace)->group(function(){
+
             $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+            
+      });
+       
+            
         
     }
 
@@ -71,6 +78,10 @@ class SfaqServiceProvider extends ServiceProvider
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations', 'sfaq');
         
     }
+
+    
+
+    
 
 
     

@@ -7,10 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Sahadat\Sfaq\Models\Category;
 use Sahadat\Sfaq\Models\Question;
+use Illuminate\Support\Facades\Auth;
 
 
 class CategoryController extends Controller
 {
+
+   
 
     public function index(){
         $cat = Category::all();
